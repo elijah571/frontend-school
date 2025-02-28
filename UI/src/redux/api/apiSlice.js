@@ -1,8 +1,11 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import customBaseQuery from "./customeBaseQuery";
+import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
+import { BASE_URL } from "../constant";
+
+const baseQuery = fetchBaseQuery({ baseUrl: BASE_URL });
 
 export const apiSlice = createApi({
-  baseQuery: customBaseQuery,
-  tagTypes: ["Teacher", "Student", "Attendance", "Report", "Classroom"],
+  baseQuery,
+  tagTypes: ["Teacher", "Student", "Attendance", "Report, Classroom"],
   endpoints: () => ({}),
+  credentials: "include"
 });
